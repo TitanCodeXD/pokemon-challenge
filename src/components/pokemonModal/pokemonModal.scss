@@ -1,0 +1,19 @@
+.pokemon-modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.pokemon-modal__content {
+    width: 500px;
+    min-height: 400px;
+    padding: 32px;
+
+    border-radius: 16px;
+    background-color: #242424;
+}
