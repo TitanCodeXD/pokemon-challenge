@@ -1,17 +1,15 @@
 import './pokemonCard.scss';
 
-function PokemonCard() {
+function PokemonCard({ name }) {
     return (
         <article className="pokemon-card">
-            <span className="pokemon-card__number">#001</span>
-
             <img
                 className="pokemon-card__image"
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                alt="Bulbasaur"
+                alt={name}
             />
 
-            <h2 className="pokemon-card__name">Bulbasaur</h2>
+            <h2 className="pokemon-card__name">{name}</h2>
         </article>
     );
 }

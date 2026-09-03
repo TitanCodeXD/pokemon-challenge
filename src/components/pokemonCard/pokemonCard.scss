@@ -3,10 +3,13 @@
     flex-direction: column;
     align-items: center;
 
+    max-width: 300px;
+    height: 300px;
+
     padding: 24px;
 
     border-radius: 16px;
-    background-color: #ffffff;
+    background-color: #242424;
 
     cursor: pointer;
 
@@ -24,5 +27,12 @@
     &__name {
         font-size: 20px;
         font-weight: 700;
+        margin-top: auto;
+        opacity: 0;
     }
+}
+
+.pokemon-card:hover .pokemon-card__name {
+    opacity: 1;
+    animation: fadeIn 0.3s ease-in-out;
 }
