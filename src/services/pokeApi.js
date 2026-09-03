@@ -1,3 +1,4 @@
+//Como não tem nada sensível, é algo publico e sem api key, coloquei aqui mesmo, sem ser no .env
 const API_URL = 'https://pokeapi.co/api/v2';
 
 //Aqui fiz duas funççoes básicas para consumir a api, um para pegar um pokemon especifico, oputro para pegar todos aatraves de um mape de nomes

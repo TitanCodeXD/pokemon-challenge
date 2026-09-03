@@ -33,7 +33,7 @@ function PokemonGrid() {
                 <PokemonCard
                     key={pokemon.id}
                     name={pokemon.name}
-                    image={pokemon.sprites.other['official-artwork'].front_default}
+                    image={pokemon.sprites.other.home.front_default}
                     type={pokemon.types[0].type.name}
                 />
             ))}

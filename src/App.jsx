@@ -16,11 +16,15 @@ function App() {
     return (
         <>
             <div>
-                <img src={Logo} alt="Orbit Logo"></img>
-                <h1>Orbital</h1>
-                <h2>Frontend Challenge</h2>
+                <div className="header">
+                    <img src={Logo} alt="Orbit Logo"></img>
+                    <h1>Orbital</h1>
+                    <h2>Frontend Challenge</h2>
+                </div>
 
-                <PokemonGrid />
+                <div className="content">
+                    <PokemonGrid />
+                </div>
             </div>
         </>
     );
