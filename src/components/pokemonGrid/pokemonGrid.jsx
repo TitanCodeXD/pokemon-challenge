@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react';
 import PokemonCard from '../pokemonCard/pokemonCard';
+import { getPokemons } from '../../services/pokeApi';
 import './pokemonGrid.scss';
 
 const pokemonList = [
@@ -13,10 +15,26 @@ const pokemonList = [
 ];
 
 function PokemonGrid() {
+    const [pokemons, setPokemons] = useState([]);
+
+    useEffect(() => {
+        async function fetchPokemons() {
+            const data = await getPokemons(pokemonList);
+
+            setPokemons(data);
+        }
+
+        fetchPokemons();
+    }, []);
+
     return (
         <section className="pokemon-grid">
-            {pokemonList.map((pokemon) => (
-                <PokemonCard key={pokemon} name={pokemon} />
+            {pokemons.map((pokemon) => (
+                <PokemonCard
+                    key={pokemon.id}
+                    name={pokemon.name}
+                    image={pokemon.sprites.other['official-artwork'].front_default}
+                />
             ))}
         </section>
     );

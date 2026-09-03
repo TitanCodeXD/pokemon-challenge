@@ -1,13 +1,9 @@
 import './pokemonCard.scss';
 
-function PokemonCard({ name }) {
+function PokemonCard({ name, image }) {
     return (
         <article className="pokemon-card">
-            <img
-                className="pokemon-card__image"
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                alt={name}
-            />
+            <img className="pokemon-card__image" src={image} alt={name} />
 
             <h2 className="pokemon-card__name">{name}</h2>
         </article>
