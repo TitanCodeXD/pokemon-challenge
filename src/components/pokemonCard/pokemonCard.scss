@@ -30,9 +30,45 @@
         margin-top: auto;
         opacity: 0;
     }
+
+    h2 {
+        font-weight: 400;
+    }
 }
 
 .pokemon-card:hover .pokemon-card__name {
     opacity: 1;
     animation: fadeIn 0.3s ease-in-out;
+}
+
+.grass {
+    color: #78c850;
+}
+
+.fire {
+    color: #f08030;
+}
+
+.water {
+    color: #6890f0;
+}
+
+.bug {
+    color: #a8b820;
+}
+
+.poison {
+    color: #a040a0;
+}
+
+.flying {
+    color: #a890f0;
+}
+
+.normal {
+    color: #a8a878;
+}
+
+.electric {
+    color: #f8d030;
 }

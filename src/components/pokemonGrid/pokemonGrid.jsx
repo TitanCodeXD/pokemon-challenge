@@ -34,6 +34,7 @@ function PokemonGrid() {
                     key={pokemon.id}
                     name={pokemon.name}
                     image={pokemon.sprites.other['official-artwork'].front_default}
+                    type={pokemon.types[0].type.name}
                 />
             ))}
         </section>
