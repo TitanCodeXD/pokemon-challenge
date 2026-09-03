@@ -1,3 +1,9 @@
 #root {
     min-height: 100vh;
 }
+
+$text-color-h2: #747474;
+
+h2 {
+    color: $text-color-h2;
+}

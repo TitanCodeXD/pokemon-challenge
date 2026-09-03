@@ -1,0 +1,28 @@
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 24px;
+
+    border-radius: 16px;
+    background-color: #ffffff;
+
+    cursor: pointer;
+
+    &__number {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    &__image {
+        width: 160px;
+        height: 160px;
+        object-fit: contain;
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
