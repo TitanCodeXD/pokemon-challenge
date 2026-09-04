@@ -1,16 +1,109 @@
-# React + Vite
+# Pokémon Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação frontend desenvolvida como parte de um desafio técnico para a [Orbital.Company](https://orbital.company), utilizando **React, JavaScript e SCSS**, com integração à **PokéAPI**.
 
-Currently, two official plugins are available:
+O projeto apresenta um catálogo responsivo de 8 Pokémon, com informações detalhadas, cadeia de evoluções e navegação entre os Pokémon.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Demonstração
 
-## React Compiler
+**[Acessar aplicação](#TODO)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+- Catálogo com 8 Pokémon
+- Consumo de dados através da PokéAPI
+- Layout responsivo para diversos dispositivos
+- Modal com detalhes do Pokémon
+- Exibição de número, nome, espécie, altura, peso e habilidades
+- Cadeia de evoluções
+- Destaque da próxima evolução
+- Navegação entre os Pokémon pelo próprio model
+- Estado de carregamento durante a busca dos dados de evolução
+- Cores baseadas no tipo do Pokémon
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologias
+
+- React
+- JavaScript (ES6+)
+- SCSS
+- Vite
+- PokéAPI
+- HTML5
+- CSS3
+
+## 📁 Estrutura principal do projeto
+
+```text
+src/
+├── components/
+│   ├── pokemonCard/ (pokemon)
+│   ├── pokemonGrid/ (grid de pokemons da tela inicial)
+│   └── pokemonModal/ (modal para detalhes avançados de um pokemon)
+├── services/
+│   └── pokeApi.js (conexões com a api, funções para cada uso)
+├── App.jsx
+├── App.scss
+├── index.scss
+└── main.jsx
+```
+
+## ⚙️ Como executar
+
+### Pré-requisitos
+
+- Node.js
+- npm
+
+### Instalação
+
+Clone o repositório:
+
+```bash
+git clone 'https://github.com/TitanCodeXD/pokemon-challenge'
+```
+
+Entre na pasta do projeto:
+
+```bash
+cd pokemon-frontend-challenge
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+A aplicação estará disponível no endereço informado pelo Vite no terminal, normalmente [localhost:5173](http://localhost:5173)
+
+### Build de produção
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+```
+
+## 🔌 API
+
+O projeto utiliza a **[PokéAPI](https://pokeapi.co/)** para obter os dados dos Pokémon, espécies e cadeias de evolução.
+
+## 📱 Responsividade
+
+A interface foi desenvolvida para se adaptar a diferentes tamanhos de tela:
+
+- Desktop
+- Tablet
+- Mobile
+
+## 👨‍💻 Autor
+
+**Wesley Santos**
+
+Desenvolvedor FullStack com foco no ecossistema JavaScript/Typescript, React e Node.js/NestJS.
