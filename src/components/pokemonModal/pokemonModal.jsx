@@ -17,10 +17,11 @@ function getEvolutionNames(chain) {
     return names;
 }
 
-function PokemonModal({ pokemon }) {
+function PokemonModal({ pokemon, onClose }) {
     const [species, setSpecies] = useState(null);
     const [evolutionChain, setEvolutionChain] = useState(null);
     const [evolutionPokemons, setEvolutionPokemons] = useState([]);
+    const [loadingEvolution, setLoadingEvolution] = useState(true);
 
     useEffect(() => {
         async function fetchSpecies() {
@@ -39,6 +40,8 @@ function PokemonModal({ pokemon }) {
             );
 
             setEvolutionPokemons(evolutionPokemons);
+
+            setLoadingEvolution(false);
         }
 
         fetchSpecies();
@@ -58,6 +61,9 @@ function PokemonModal({ pokemon }) {
     return (
         <div className="pokemon-modal">
             <div className={`pokemon-modal__content ${pokemon.types[0].type.name}`}>
+                <button className="pokemon-modal__close" onClick={onClose}>
+                    ×
+                </button>
                 <div className="pokemon-modal__info">
                     <span className="pokemon-modal__number">#{pokemonNumber}</span>
 
@@ -98,27 +104,33 @@ function PokemonModal({ pokemon }) {
                 <div className="pokemon-modal__evolution">
                     <h2>Evolution</h2>
 
-                    <div className={`pokemon-modal__evolution-list ${pokemon.types[0].type.name}`}>
-                        {evolutionPokemons.map((evolution, index) => (
-                            <div
-                                key={evolution.id}
-                                className={
-                                    index === nextEvolutionIndex
-                                        ? `next ${evolution.types[0].type.name}`
-                                        : ''
-                                }
-                            >
-                                <img src={evolution.sprites.other.home.front_default} alt="" />
+                    {loadingEvolution ? (
+                        <span>Carregando...</span>
+                    ) : (
+                        <div
+                            className={`pokemon-modal__evolution-list ${pokemon.types[0].type.name}`}
+                        >
+                            {evolutionPokemons.map((evolution, index) => (
+                                <div
+                                    key={evolution.id}
+                                    className={
+                                        index === nextEvolutionIndex
+                                            ? `next ${evolution.types[0].type.name}`
+                                            : ''
+                                    }
+                                >
+                                    <img src={evolution.sprites.other.home.front_default} alt="" />
 
-                                {index === nextEvolutionIndex && (
-                                    <span>
-                                        {evolution.name.charAt(0).toUpperCase() +
-                                            evolution.name.slice(1)}
-                                    </span>
-                                )}
-                            </div>
-                        ))}
-                    </div>
+                                    {index === nextEvolutionIndex && (
+                                        <span>
+                                            {evolution.name.charAt(0).toUpperCase() +
+                                                evolution.name.slice(1)}
+                                        </span>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

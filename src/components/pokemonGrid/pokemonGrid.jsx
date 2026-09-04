@@ -42,7 +42,9 @@ function PokemonGrid() {
                     />
                 ))}
             </section>
-            {selectedPokemon && <PokemonModal pokemon={selectedPokemon} />}
+            {selectedPokemon && (
+                <PokemonModal pokemon={selectedPokemon} onClose={() => setSelectedPokemon(null)} />
+            )}
         </>
     );
 }

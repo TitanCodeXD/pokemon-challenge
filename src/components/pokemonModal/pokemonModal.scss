@@ -127,6 +127,37 @@ $text-color-secundary: #d3f8ec;
         }
     }
 
+    //Fechar modal
+    .pokemon-modal__close {
+        position: absolute;
+        top: -60px;
+        right: 0px;
+        width: 48px;
+        height: 48px;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .pokemon-modal__close::before,
+    .pokemon-modal__close::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 60px;
+        height: 1px;
+        background-color: #ffffff;
+    }
+
+    .pokemon-modal__close::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .pokemon-modal__close::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
     h2 {
         font-weight: 700;
         color: #ffffff;
