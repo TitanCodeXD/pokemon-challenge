@@ -436,9 +436,10 @@ $text-color-secundary: #d3f8ec;
         &__content {
             width: 100%;
             min-height: auto;
-            max-height: 90vh;
+            max-height: 90dvh;
             padding: 30px;
             border-radius: 20px;
+            overflow-y: auto;
         }
 
         &__image {
