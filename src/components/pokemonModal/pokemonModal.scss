@@ -430,12 +430,14 @@ $text-color-secundary: #d3f8ec;
     .pokemon-modal {
         font-size: 1em;
         padding: 16px;
+        height: auto;
+        overflow-y: auto;
 
         &__content {
             width: 100%;
             min-height: auto;
             max-height: 90vh;
-            padding: 24px;
+            padding: 30px;
             border-radius: 20px;
         }
 
@@ -478,11 +480,11 @@ $text-color-secundary: #d3f8ec;
             flex-wrap: wrap;
 
             div {
-                padding: 8px;
+                padding: 20px;
             }
 
             img {
-                width: 80px;
+                width: 70px;
                 height: 80px;
             }
         }
