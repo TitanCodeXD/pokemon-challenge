@@ -5,3 +5,15 @@
     gap: 24px;
     column-gap: 12px;
 }
+
+@media (max-width: 900px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .pokemon-grid {
+        grid-template-columns: 1fr;
+    }
+}

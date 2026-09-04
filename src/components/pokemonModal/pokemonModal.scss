@@ -221,3 +221,314 @@ $text-color-secundary: #d3f8ec;
         font-weight: 400;
     }
 }
+
+//Responsividade
+@media (min-width: 1025px) and (max-width: 1300px) {
+    .pokemon-modal {
+        .pokemon-modal__arrow {
+            position: absolute;
+            top: 50%;
+            width: 48px;
+            height: 48px;
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            &--left {
+                left: 10px;
+            }
+
+            &--right {
+                right: 10px;
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                width: 28px;
+                height: 1px;
+                background-color: #ffffff;
+            }
+        }
+    }
+}
+@media (max-width: 1024px) {
+    .pokemon-modal {
+        font-size: 1.1em;
+
+        &__content {
+            width: 85%;
+            min-height: 600px;
+            padding: 36px;
+        }
+
+        &__image {
+            width: 320px;
+            height: 320px;
+            top: -70px;
+            right: 0;
+        }
+
+        &__details {
+            gap: 32px;
+        }
+
+        &__evolution {
+            margin-top: 80px;
+        }
+
+        &__evolution-list {
+            gap: 16px;
+
+            img {
+                width: 120px;
+                height: 120px;
+            }
+
+            div {
+                padding: 12px;
+            }
+        }
+        .pokemon-modal__close {
+            position: absolute;
+            top: -50px;
+            right: 0px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .pokemon-modal__close::before,
+        .pokemon-modal__close::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 1px;
+            background-color: #ffffff;
+        }
+
+        .pokemon-modal__arrow {
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            &--left {
+                left: 0px;
+            }
+
+            &--right {
+                right: 0px;
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                width: 20px;
+                height: 1px;
+                background-color: #ffffff;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .pokemon-modal {
+        font-size: 1.1em;
+
+        &__content {
+            width: 85%;
+            min-height: 600px;
+            padding: 36px;
+        }
+
+        &__image {
+            width: 320px;
+            height: 320px;
+            top: -70px;
+            right: 0;
+        }
+
+        &__details {
+            gap: 32px;
+        }
+
+        &__evolution {
+            margin-top: 80px;
+        }
+
+        &__evolution-list {
+            gap: 16px;
+
+            img {
+                width: 120px;
+                height: 120px;
+            }
+
+            div {
+                padding: 12px;
+            }
+        }
+
+        .pokemon-modal__arrow {
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            &--left {
+                left: 0px;
+            }
+
+            &--right {
+                right: 0px;
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                width: 20px;
+                height: 1px;
+                background-color: #ffffff;
+            }
+        }
+    }
+}
+
+@media (min-width: 601px) and (max-width: 750px) {
+    .pokemon-modal {
+        &__image {
+            width: 230px;
+            height: 250px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .pokemon-modal {
+        font-size: 1em;
+        padding: 16px;
+
+        &__content {
+            width: 100%;
+            min-height: auto;
+            max-height: 90vh;
+            padding: 24px;
+            border-radius: 20px;
+        }
+
+        &__image {
+            position: static;
+            display: block;
+            width: 220px;
+            height: 220px;
+            margin: -10px auto 0;
+        }
+
+        &__info {
+            h2 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1.1em;
+                margin-bottom: 24px;
+            }
+        }
+
+        &__details {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        &__evolution {
+            margin-top: 38px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__evolution h2 {
+            margin-bottom: 2.5em;
+        }
+
+        &__evolution-list {
+            gap: 8px;
+            flex-wrap: wrap;
+
+            div {
+                padding: 8px;
+            }
+
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        .pokemon-modal__close {
+            position: absolute;
+            top: -50px;
+            right: 0px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .pokemon-modal__close::before,
+        .pokemon-modal__close::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 1px;
+            background-color: #ffffff;
+        }
+
+        .pokemon-modal__arrow {
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            &--left {
+                left: 0px;
+            }
+
+            &--right {
+                right: 0px;
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                width: 20px;
+                height: 1px;
+                background-color: #ffffff;
+            }
+        }
+    }
+}
