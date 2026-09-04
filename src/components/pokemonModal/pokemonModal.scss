@@ -136,8 +136,8 @@ $text-color-secundary: #d3f8ec;
     //Fechar modal
     .pokemon-modal__close {
         position: absolute;
-        top: -60px;
-        right: 0px;
+        top: 15em;
+        right: 30%;
         width: 48px;
         height: 48px;
         border: none;
@@ -229,8 +229,24 @@ $text-color-secundary: #d3f8ec;
 }
 
 //Responsividade
-@media (min-width: 1025px) and (max-width: 1300px) {
+@media (min-width: 1025px) and (max-width: 2300px) {
     .pokemon-modal {
+        .pokemon-modal__close {
+            position: absolute;
+            top: 13em;
+            right: 80px;
+        }
+
+        .pokemon-modal__close::before,
+        .pokemon-modal__close::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 1px;
+            background-color: #ffffff;
+        }
         .pokemon-modal__arrow {
             position: absolute;
             top: 50%;
@@ -349,6 +365,16 @@ $text-color-secundary: #d3f8ec;
     }
 }
 
+@media (min-width: 900px) and (max-width: 1024px) {
+    .pokemon-modal {
+        .pokemon-modal__close {
+            position: absolute;
+            top: 19em;
+            right: 20px;
+        }
+    }
+}
+
 @media (max-width: 900px) {
     .pokemon-modal {
         font-size: 1.1em;
@@ -385,6 +411,12 @@ $text-color-secundary: #d3f8ec;
             div {
                 padding: 12px;
             }
+        }
+
+        .pokemon-modal__close {
+            position: absolute;
+            top: 19em;
+            right: 20px;
         }
 
         .pokemon-modal__arrow {
@@ -439,7 +471,7 @@ $text-color-secundary: #d3f8ec;
             max-height: 90dvh;
             padding: 30px;
             border-radius: 20px;
-            overflow: visible;
+            overflow-y: auto;
         }
 
         &__image {
@@ -492,13 +524,14 @@ $text-color-secundary: #d3f8ec;
 
         .pokemon-modal__close {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 19em;
+            right: 20px;
             width: 48px;
             height: 48px;
             border: none;
             background: none;
             cursor: pointer;
+            z-index: 1;
         }
 
         .pokemon-modal__close::before,

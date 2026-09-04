@@ -68,10 +68,10 @@ function PokemonModal({
 
     return (
         <div className="pokemon-modal">
+            <button className="pokemon-modal__close" onClick={onClose}>
+                ×
+            </button>
             <div className={`pokemon-modal__content ${pokemon.types[0].type.name}`}>
-                <button className="pokemon-modal__close" onClick={onClose}>
-                    ×
-                </button>
                 {canGoPrevious && (
                     <button
                         className="pokemon-modal__arrow pokemon-modal__arrow--left"
