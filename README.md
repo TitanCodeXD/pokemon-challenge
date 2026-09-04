@@ -6,7 +6,7 @@ O projeto apresenta um catálogo responsivo de 8 Pokémon, com informações det
 
 ## 🚀 Demonstração
 
-**[Acessar aplicação](#TODO)**
+**[Acessar aplicação](https://pokemon-challengexd.netlify.app)**
 
 ## ✨ Funcionalidades
 
