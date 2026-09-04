@@ -125,7 +125,7 @@ function PokemonModal({
                 />
 
                 <div className="pokemon-modal__evolution">
-                    <h2>Evolution</h2>
+                    <h3>Evolutions</h3>
 
                     {loadingEvolution ? (
                         <span>Carregando...</span>
