@@ -18,6 +18,7 @@ const pokemonList = [
 function PokemonGrid() {
     const [pokemons, setPokemons] = useState([]);
     const [selectedPokemon, setSelectedPokemon] = useState(null);
+    const [selectedPokemonIndex, setSelectedPokemonIndex] = useState(null); //para podermos trocar de pokemon pelo modal
 
     useEffect(() => {
         async function fetchPokemons() {
@@ -29,21 +30,51 @@ function PokemonGrid() {
         fetchPokemons();
     }, []);
 
+    //para passarmos o index do pokemon selecionado para o modal
+    const handlePreviousPokemon = () => {
+        if (selectedPokemonIndex > 0) {
+            const previousIndex = selectedPokemonIndex - 1;
+
+            setSelectedPokemonIndex(previousIndex);
+            setSelectedPokemon(pokemons[previousIndex]);
+        }
+    };
+
+    const handleNextPokemon = () => {
+        if (selectedPokemonIndex < pokemons.length - 1) {
+            const nextIndex = selectedPokemonIndex + 1;
+
+            setSelectedPokemonIndex(nextIndex);
+            setSelectedPokemon(pokemons[nextIndex]);
+        }
+    };
+
     return (
         <>
             <section className="pokemon-grid">
-                {pokemons.map((pokemon) => (
+                {pokemons.map((pokemon, index) => (
                     <PokemonCard
                         key={pokemon.id}
                         name={pokemon.name}
                         image={pokemon.sprites.other.home.front_default}
                         type={pokemon.types[0].type.name}
-                        onClick={() => setSelectedPokemon(pokemon)}
+                        onClick={() => {
+                            setSelectedPokemon(pokemon);
+                            setSelectedPokemonIndex(index);
+                        }}
                     />
                 ))}
             </section>
             {selectedPokemon && (
-                <PokemonModal pokemon={selectedPokemon} onClose={() => setSelectedPokemon(null)} />
+                <PokemonModal
+                    pokemon={selectedPokemon}
+                    onClose={() => setSelectedPokemon(null)}
+                    selectedPokemonIndex={selectedPokemonIndex}
+                    onPrevious={handlePreviousPokemon}
+                    onNext={handleNextPokemon}
+                    canGoPrevious={selectedPokemonIndex > 0}
+                    canGoNext={selectedPokemonIndex < pokemons.length - 1}
+                />
             )}
         </>
     );

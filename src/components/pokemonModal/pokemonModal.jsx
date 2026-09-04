@@ -17,7 +17,15 @@ function getEvolutionNames(chain) {
     return names;
 }
 
-function PokemonModal({ pokemon, onClose }) {
+function PokemonModal({
+    pokemon,
+    onClose,
+    selectedPokemonIndex,
+    onPrevious,
+    onNext,
+    canGoPrevious,
+    canGoNext,
+}) {
     const [species, setSpecies] = useState(null);
     const [evolutionChain, setEvolutionChain] = useState(null);
     const [evolutionPokemons, setEvolutionPokemons] = useState([]);
@@ -64,6 +72,21 @@ function PokemonModal({ pokemon, onClose }) {
                 <button className="pokemon-modal__close" onClick={onClose}>
                     ×
                 </button>
+                {canGoPrevious && (
+                    <button
+                        className="pokemon-modal__arrow pokemon-modal__arrow--left"
+                        onClick={onPrevious}
+                        aria-label="Previous Pokémon"
+                    ></button>
+                )}
+
+                {canGoNext && (
+                    <button
+                        className="pokemon-modal__arrow pokemon-modal__arrow--right"
+                        onClick={onNext}
+                        aria-label="Next Pokémon"
+                    ></button>
+                )}
                 <div className="pokemon-modal__info">
                     <span className="pokemon-modal__number">#{pokemonNumber}</span>
 
