@@ -1,6 +1,20 @@
+import { useEffect, useState } from 'react';
+import { getPokemonSpecies } from '../../services/pokeApi';
 import './pokemonModal.scss';
 
 function PokemonModal({ pokemon }) {
+    const [species, setSpecies] = useState(null);
+
+    useEffect(() => {
+        async function fetchSpecies() {
+            const data = await getPokemonSpecies(pokemon.species.url);
+
+            setSpecies(data);
+        }
+
+        fetchSpecies();
+    }, [pokemon]);
+
     const formattedName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
     const pokemonNumber = String(pokemon.id).padStart(3, '0');
@@ -13,7 +27,9 @@ function PokemonModal({ pokemon }) {
 
                     <h2>{formattedName}</h2>
 
-                    <p>Seed Pokémon</p>
+                    {species && (
+                        <p>{species.genera.find((item) => item.language.name === 'en')?.genus}</p>
+                    )}
 
                     <div className="pokemon-modal__details">
                         <div>

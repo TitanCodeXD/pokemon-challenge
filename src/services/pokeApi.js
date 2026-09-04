@@ -17,3 +17,14 @@ export async function getPokemons(names) {
 
     return Promise.all(requests);
 }
+
+//conseguir a espécie para aparecer no modal
+export async function getPokemonSpecies(url) {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch Pokémon species');
+    }
+
+    return response.json();
+}
