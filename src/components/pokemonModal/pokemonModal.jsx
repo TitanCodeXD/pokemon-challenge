@@ -1,15 +1,44 @@
 import { useEffect, useState } from 'react';
-import { getPokemonSpecies } from '../../services/pokeApi';
+import { getPokemon, getPokemonSpecies, getEvolutionChain } from '../../services/pokeApi';
 import './pokemonModal.scss';
+
+//funçao externa para eu pegar separado cada evoluçao, ja que a api é muito aninhado os detalhes, e so quero a imagem das evoluçoes e os nomes
+function getEvolutionNames(chain) {
+    const names = [];
+
+    let current = chain;
+
+    while (current) {
+        names.push(current.species.name);
+
+        current = current.evolves_to[0];
+    }
+
+    return names;
+}
 
 function PokemonModal({ pokemon }) {
     const [species, setSpecies] = useState(null);
+    const [evolutionChain, setEvolutionChain] = useState(null);
+    const [evolutionPokemons, setEvolutionPokemons] = useState([]);
 
     useEffect(() => {
         async function fetchSpecies() {
             const data = await getPokemonSpecies(pokemon.species.url);
 
             setSpecies(data);
+
+            const evolutionData = await getEvolutionChain(data.evolution_chain.url);
+
+            setEvolutionChain(evolutionData);
+
+            const evolutionNames = getEvolutionNames(evolutionData.chain);
+
+            const evolutionPokemons = await Promise.all(
+                evolutionNames.map((name) => getPokemon(name)),
+            );
+
+            setEvolutionPokemons(evolutionPokemons);
         }
 
         fetchSpecies();
@@ -58,6 +87,26 @@ function PokemonModal({ pokemon }) {
                     src={pokemon.sprites.other.home.front_default}
                     alt={formattedName}
                 />
+
+                <div className="pokemon-modal__evolution">
+                    <h2>Evolution</h2>
+
+                    <div className="pokemon-modal__evolution-list">
+                        {evolutionPokemons.map((evolution) => (
+                            <div key={evolution.id}>
+                                <img
+                                    src={evolution.sprites.other.home.front_default}
+                                    alt={evolution.name}
+                                />
+
+                                <span>
+                                    {evolution.name.charAt(0).toUpperCase() +
+                                        evolution.name.slice(1)}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );

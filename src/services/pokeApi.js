@@ -1,7 +1,7 @@
 //Como não tem nada sensível, é algo publico e sem api key, coloquei aqui mesmo, sem ser no .env
 const API_URL = 'https://pokeapi.co/api/v2';
 
-//Aqui fiz duas funççoes básicas para consumir a api, um para pegar um pokemon especifico, oputro para pegar todos aatraves de um mape de nomes
+//Aqui fiz duas funççoes básicas iniciais que é o CORE para consumir a api, um para pegar um pokemon especifico, oputro para pegar todos aatraves de um mape de nomes
 export async function getPokemon(name) {
     const response = await fetch(`${API_URL}/pokemon/${name}`);
 
@@ -24,6 +24,17 @@ export async function getPokemonSpecies(url) {
 
     if (!response.ok) {
         throw new Error('Failed to fetch Pokémon species');
+    }
+
+    return response.json();
+}
+
+//evoluçao do pokemon
+export async function getEvolutionChain(url) {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch evolution chain');
     }
 
     return response.json();

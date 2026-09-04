@@ -6,7 +6,7 @@ $pokemon-types: (
     'poison': #a040a0,
     'flying': #a890f0,
     'normal': #a8a878,
-    'electric': #f8d030,
+    'electric': #eccb47,
 );
 
 $text-color-secundary: #d3f8ec;
@@ -84,6 +84,28 @@ $text-color-secundary: #d3f8ec;
         width: 450px;
         height: 450px;
 
+        object-fit: contain;
+    }
+
+    //Evoluçõies
+    .pokemon-modal__evolution {
+        margin-top: 100px;
+    }
+
+    .pokemon-modal__evolution-list {
+        display: flex;
+        gap: 24px;
+    }
+
+    .pokemon-modal__evolution-list div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pokemon-modal__evolution-list img {
+        width: 150px;
+        height: 150px;
         object-fit: contain;
     }
 
