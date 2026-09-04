@@ -48,6 +48,13 @@ function PokemonModal({ pokemon }) {
 
     const pokemonNumber = String(pokemon.id).padStart(3, '0');
 
+    //para eu conseguir destacar a proxima evoluçao do pokemon
+    const currentEvolutionIndex = evolutionPokemons.findIndex(
+        (evolution) => evolution.id === pokemon.id,
+    );
+
+    const nextEvolutionIndex = currentEvolutionIndex >= 0 ? currentEvolutionIndex + 1 : -1;
+
     return (
         <div className="pokemon-modal">
             <div className={`pokemon-modal__content ${pokemon.types[0].type.name}`}>
@@ -91,18 +98,24 @@ function PokemonModal({ pokemon }) {
                 <div className="pokemon-modal__evolution">
                     <h2>Evolution</h2>
 
-                    <div className="pokemon-modal__evolution-list">
-                        {evolutionPokemons.map((evolution) => (
-                            <div key={evolution.id}>
-                                <img
-                                    src={evolution.sprites.other.home.front_default}
-                                    alt={evolution.name}
-                                />
+                    <div className={`pokemon-modal__evolution-list ${pokemon.types[0].type.name}`}>
+                        {evolutionPokemons.map((evolution, index) => (
+                            <div
+                                key={evolution.id}
+                                className={
+                                    index === nextEvolutionIndex
+                                        ? `next ${evolution.types[0].type.name}`
+                                        : ''
+                                }
+                            >
+                                <img src={evolution.sprites.other.home.front_default} alt="" />
 
-                                <span>
-                                    {evolution.name.charAt(0).toUpperCase() +
-                                        evolution.name.slice(1)}
-                                </span>
+                                {index === nextEvolutionIndex && (
+                                    <span>
+                                        {evolution.name.charAt(0).toUpperCase() +
+                                            evolution.name.slice(1)}
+                                    </span>
+                                )}
                             </div>
                         ))}
                     </div>
